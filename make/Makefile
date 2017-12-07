@@ -47,8 +47,11 @@ GMOCK_LIB = $(GMOCK_DIR)/make
 
 all : $(TESTS)
 
+coverage : CXXFLAGS += -fprofile-arcs -ftest-coverage -lgcov --coverage
+coverage : $(TESTS)
+
 clean :
-	rm -f $(TESTS) *.o
+	rm -f $(TESTS) *.o *.gcov *.gcda *.gcno *.xml
 
 # Builds a sample test.  A test should link with either gtest.a or
 # gtest_main.a, depending on whether it defines its own main()
