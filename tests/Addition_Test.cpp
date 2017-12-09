@@ -8,12 +8,13 @@
 #include "gtest/gtest.h"
 #include "../src/Addition.hpp"
 
-TEST(AdditionTest, twoValues){
-	const int x = 4;
-	const int y = 5;
+TEST(AdditionTest, twoValuesUnderLimit){
 	Addition addition;
-	EXPECT_EQ(9, addition.twoValues(x,y));
-	EXPECT_EQ(5, addition.twoValues(2, 3));
+	EXPECT_EQ(9, addition.twoValues(5, 4));
 }
 
+TEST(AdditionTest, twoValuesOverLimit){
+	Addition addition;
+	EXPECT_EQ(10, addition.twoValues(10, 1));
+}
 
