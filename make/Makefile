@@ -29,7 +29,7 @@ CXX = g++
 CPPFLAGS += -isystem $(GTEST_DIR)/include
 
 # Flags passed to the C++ compiler.
-CXXFLAGS += -g3 -Wall -Wextra -pthread -O0 -fmessage-length=0
+CXXFLAGS += -g -Wall -Wextra -pthread -O0 -fmessage-length=0
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
@@ -47,6 +47,8 @@ GMOCK_LIB = $(GMOCK_DIR)/make
 
 all : $(TESTS)
 
+# Run with this option "make coverage" to produce the files needed for
+# coverage report.
 coverage : CXXFLAGS += -fprofile-arcs -ftest-coverage -lgcov --coverage
 coverage : $(TESTS)
 
